@@ -32,5 +32,5 @@ class Same_IP(object):
 
 
 if __name__ == '__main__':
-    testVuln = Same_IP(sys.argv[1])
-    testVuln.run()
+    fallingSword = Same_IP(sys.argv[1])
+    fallingSword.run()

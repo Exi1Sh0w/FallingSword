@@ -6,7 +6,6 @@
 @Module:
 """
 
-
 import threading
 import requests
 import sys
@@ -33,6 +32,7 @@ def scan_path(base_url, path, results):
     except requests.exceptions.ConnectionError as e:
         pass  # 网络错误时忽略，不做处理
 
+
 def scan_domain(url):
     """
     使用多线程来启动scan_path函数
@@ -54,13 +54,14 @@ def scan_domain(url):
     return results
 
 
-class infoscan():
+class infoscan(object):
     def __init__(self, url):
         self.url = url
 
     def run(self):
         return scan_domain(self.url)
 
+
 if __name__ == '__main__':
-    testVuln = infoscan(sys.argv[1])
-    print(testVuln.run())
+    fallingSword = infoscan(sys.argv[1])
+    print(fallingSword.run())

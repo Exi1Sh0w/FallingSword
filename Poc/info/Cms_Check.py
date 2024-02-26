@@ -11,6 +11,8 @@ import requests, sys, json
 headers = {
     'user-agent': 'Mozilla/5.0 (Windows NT 10'
 }
+
+
 def detect_cms(url, cms_fingerprints):
     """
     检测用户输入的应用是什么CMS
@@ -53,5 +55,5 @@ class CMSCheck(object):
 
 
 if __name__ == '__main__':
-    testVuln = CMSCheck(sys.argv[1])
-    print(testVuln.run())
+    fallingSword = CMSCheck(sys.argv[1])
+    print(fallingSword.run())

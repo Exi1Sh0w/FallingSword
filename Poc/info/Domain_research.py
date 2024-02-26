@@ -9,7 +9,8 @@ import sys
 from bs4 import BeautifulSoup
 import requests
 
-class DomainResearch:
+
+class DomainResearch(object):
     def __init__(self, url):
         self.url = url
 
@@ -67,6 +68,7 @@ class DomainResearch:
         except Exception as e:
             return "[Error] " + str(e)
 
+
 if __name__ == '__main__':
-    testVuln = DomainResearch(sys.argv[1])
-    print(testVuln.run())
+    fallingSword = DomainResearch(sys.argv[1])
+    print(fallingSword.run())

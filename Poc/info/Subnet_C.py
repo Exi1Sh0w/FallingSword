@@ -17,7 +17,7 @@ def scan_ip(ip):
         return ip, None
 
 
-class subnet():
+class subnet(object):
     def __init__(self, url):
         self.url = url
 
@@ -42,5 +42,5 @@ class subnet():
 
 
 if __name__ == '__main__':
-    testVuln = subnet(sys.argv[1])
-    print(testVuln.run())
+    fallingSword = subnet(sys.argv[1])
+    fallingSword.run()
