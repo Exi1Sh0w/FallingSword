@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <form method="post" action="/info/sameip">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Domain name" name="domain"
+                       aria-describedby="button-addon2">
+                <button class="btn btn-primary" type="submit" id="submit">submit</button>
+            </div>
+        </form>
+        <nav id="navbar-example2" class="navbar bg-body-tertiary px-3 mb-3">
+            <a class="navbar-brand">Result: </a>
+            <ul class="nav nav-pills">
+            </ul>
+        </nav>
+        {% if same_ip %}
+            <table>
+                <thead>
+                <tr>
+                    <th>Domain Name</th>
+                    <th>Title</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for domain_info in same_ip %}
+                    <tr>
+                        <td>{{ domain_info.domain }}</td>
+                        <td>{{ domain_info.title }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    </div>
+{% endblock %}

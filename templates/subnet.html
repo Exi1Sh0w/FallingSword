@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <form method="post" action="/info/subnet">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Domain nam" name="domain"
+                       aria-describedby="button-addon2">
+                <button class="btn btn-primary" type="submit" id="submit">submit</button>
+            </div>
+        </form>
+        <nav id="navbar-example2" class="navbar bg-body-tertiary px-3 mb-3">
+            <a class="navbar-brand">Result:</a>
+            <ul class="nav nav-pills">
+            </ul>
+        </nav>
+     {% if error %}
+        <p style="color: crimson">{{ error }}</p>
+    {% else %}
+        <table>
+            <thead>
+            <tr>
+                <th>IP</th>
+                <th>Domain</th>
+                <th>Title</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for entry in data %}
+                {% for i in range(entry['domains']|length) %}
+                    <tr>
+                        {% if loop.index == 1 %}
+                            <td rowspan="{{ entry['domains']|length }}">{{ entry['ip'] }}</td>
+                        {% endif %}
+                        <td>{{ entry['domains'][i] }}</td>
+                        <td>{{ entry['titles'][i] }}</td>
+                    </tr>
+                {% endfor %}
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+    </div>
+{% endblock %}
