@@ -14,9 +14,11 @@
             <ul class="nav nav-pills">
             </ul>
         </nav>
-        {% if result %}
+        {% if result  %}
             {% for item in result %}
+                {% if item is not none %}
                 <p style="color: #003466;">{{ item }}</p>
+                {% endif %}
             {% endfor %}
 
         {% endif %}

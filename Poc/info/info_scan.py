@@ -22,13 +22,11 @@ def scan_path(base_url, path, results):
     :param path: 要扫描的路径
     :param results: 存储结果的列表
     """
-    if "http://" or "https://" not in base_url:
-        base_url = "https://" + base_url
-    final_url = base_url + "/" + path
+    base_url = base_url + "/" + path
     try:
-        conn = requests.get(final_url, headers=headers)
+        conn = requests.get(base_url, headers=headers)
         if conn.status_code == 200:
-            results.append(final_url)
+            results.append(base_url)
     except requests.exceptions.ConnectionError as e:
         pass  # 网络错误时忽略，不做处理
 

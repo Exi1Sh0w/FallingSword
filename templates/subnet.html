@@ -4,7 +4,7 @@
     <div class="container">
         <form method="post" action="/info/subnet">
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Domain nam" name="domain"
+                <input type="text" class="form-control" placeholder="Domain name" name="domain"
                        aria-describedby="button-addon2">
                 <button class="btn btn-primary" type="submit" id="submit">submit</button>
             </div>
@@ -14,9 +14,9 @@
             <ul class="nav nav-pills">
             </ul>
         </nav>
-     {% if error %}
-        <p style="color: crimson">{{ error }}</p>
-    {% else %}
+{#     {% if error %}#}
+{#        <p style="color: crimson">{{ error }}</p>#}
+    {% if data  %}
         <table>
             <thead>
             <tr>

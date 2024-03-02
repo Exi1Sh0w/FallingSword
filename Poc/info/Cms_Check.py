@@ -20,8 +20,8 @@ def detect_cms(url, cms_fingerprints):
     :param cms_fingerprints:
     :return:
     """
-    if "http://" or "https://" not in url:
-        url = "http://" + url
+    # if "http://" or "https://" not in url:
+    #     url = "http://" + url
     try:
         response = requests.get(url, headers=headers)
         if response.status_code == 200:

@@ -1,6 +1,4 @@
-from Poc.app.midware.elasticsearch.es_command_execute import CVE20143120
+import requests
 
-import sys
-
-fallingSword = CVE20143120(sys.argv[1])
-fallingSword.run()
+conn = requests.get("https://www.google.com")
+print(len(conn.text))
