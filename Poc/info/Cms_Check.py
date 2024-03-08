@@ -3,7 +3,7 @@
 @File: Cms_Check.py
 @Date: 2024/2/24 18:50
 @Desc: 
-@Module: 
+@Summary:
 """
 
 import requests, sys, json
@@ -56,4 +56,4 @@ class CMSCheck(object):
 
 if __name__ == '__main__':
     fallingSword = CMSCheck(sys.argv[1])
-    print(fallingSword.run())
+    fallingSword.run()

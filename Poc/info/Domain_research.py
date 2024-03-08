@@ -3,7 +3,7 @@
 @File: Domain_research.py
 @Date: 2024/2/23 15:22
 @Desc:
-@Module:
+@Summary:
 """
 import sys
 from bs4 import BeautifulSoup
@@ -71,4 +71,4 @@ class DomainResearch(object):
 
 if __name__ == '__main__':
     fallingSword = DomainResearch(sys.argv[1])
-    print(fallingSword.run())
+    fallingSword.run()

@@ -3,7 +3,7 @@
 @File: appLoader.py
 @Date: 2024/2/26 15:08
 @Desc: 
-@Module: 
+@Summary:
 """
 
 from flask import Blueprint, request, render_template
@@ -14,6 +14,18 @@ from Poc.app.midware.elasticsearch.es_dir_traversal_2 import ElasticSearchDirTra
 
 from Poc.app.midware.jenkins.jenkins_rce import JenkinsRce
 from Poc.app.midware.jenkins.jenkins_api_read_any_file import JenkinsApiReadAnyFile
+
+from Poc.app.midware.redis.redis_sandbox_rce import RedisSandboxRce
+from Poc.app.midware.redis.redis_empty_password import RedisEmptyPassword
+
+from Poc.app.framework.Spring.spring_dataBinding_rce import SpringDataBinding_rce
+from Poc.app.framework.Spring.spring_spel_code_injection import SpringSpellCodeInjection
+from Poc.app.framework.Spring.spring_actuator_api_spel import SpringActuatorApiSpel
+
+from Poc.app.midware.skywalking.skywalking_sql_injection import SkywalkingSQLInjection
+
+from Poc.app.midware.kafka.kafka_clients_jndi_injection import KafkaClients
+
 
 
 appLoader = Blueprint('appLoader', __name__)
@@ -33,6 +45,18 @@ def all_app_Vuln(target):
 
     results.append(JenkinsRce(target).run())
     results.append(JenkinsApiReadAnyFile(target).run())
+
+    results.append(RedisSandboxRce(target).run())
+    results.append(RedisEmptyPassword(target).run())
+
+    results.append(SpringDataBinding_rce(target).run())
+    results.append(SpringSpellCodeInjection(target).run())
+    results.append(SpringActuatorApiSpel(target).run())
+
+    results.append(SkywalkingSQLInjection(target).run())
+
+    results.append(KafkaClients(target).run())
+
     return results
 
 

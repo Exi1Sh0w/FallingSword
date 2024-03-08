@@ -3,7 +3,7 @@
 @File: jenkins_api_read_any_file.py
 @Date: 2024/3/1 17:35
 @Desc: CVE-2024-23897
-@Module: 
+@Summary:
 """
 
 import threading
@@ -67,10 +67,10 @@ class JenkinsApiReadAnyFile(object):
                     return "[Warning] Jenkins vulnerability discovered: CVE-2024-23897"
                 else:
                     return None
-        except Exception as e:
-            return None
+        except:
+            pass
 
 
 if __name__ == '__main__':
     fallingSword = JenkinsApiReadAnyFile(sys.argv[1])
-    print(fallingSword.run())
+    fallingSword.run()

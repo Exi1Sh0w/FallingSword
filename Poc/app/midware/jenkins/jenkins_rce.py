@@ -3,7 +3,7 @@
 @File: jenkins_rce.py
 @Date: 2024/2/29 16:14
 @Desc: CVE-2018-1000861, jenkins Remote command executing
-@Module: 
+@Summary:
 """
 
 import requests
@@ -31,14 +31,13 @@ class JenkinsRce(object):
 
         try:
             r = requests.get(final_url)
-            if r.status_code == 200:
+            if r.status_code == 200 and "<div/>" in r.text:
                 return "[Warning] Jenkins vulnerability discovered: CVE-2018-1000861"
             else:
-                None
-        except Exception as e:
-            return None
-
+                return None
+        except requests.exceptions.ConnectionError as e:
+            pass
 
 if __name__ == '__main__':
     fallingSword = JenkinsRce(sys.argv[1])
-    print(fallingSword.run())
+    fallingSword.run()

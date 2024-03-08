@@ -3,7 +3,7 @@
 @File: CVE-2014-3120.py
 @Date: 2024/2/26 11:34
 @Desc: CVE-2014-3120, es command executing
-@Module: 
+@Summary:
 """
 
 import requests
@@ -41,12 +41,11 @@ class CVE20143120(object):
             if "uid" in conn.text:
                 return "[Warning] Elasticsearch vulnerability discovered: CVE-2014-3120"
             else:
-                None
-
-        except Exception as e:
-            return None
+                return None
+        except requests.exceptions.ConnectionError:
+            pass
 
 
 if __name__ == "__main__":
     fallingSword = CVE20143120(sys.argv[1])
-    print(fallingSword.run())
+    fallingSword.run()

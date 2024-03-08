@@ -3,7 +3,7 @@
 @File: info_scan.py
 @Date: 2024/2/24 15:41
 @Desc:
-@Module:
+@Summary:
 """
 
 import threading
@@ -62,4 +62,4 @@ class infoscan(object):
 
 if __name__ == '__main__':
     fallingSword = infoscan(sys.argv[1])
-    print(fallingSword.run())
+    fallingSword.run()

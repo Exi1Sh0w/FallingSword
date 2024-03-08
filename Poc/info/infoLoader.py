@@ -3,7 +3,7 @@
 @File: infoLoader.py
 @Date: 2024/2/23 10:39
 @Desc:
-@Module: 
+@Summary:
 """
 
 from flask import Blueprint, request, render_template
